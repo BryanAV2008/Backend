@@ -20,5 +20,6 @@
   "bugs": {
     "url": "https://github.com/BryanAV2008/Backend/issues"
   },
-  "homepage": "https://github.com/BryanAV2008/Backend#readme"
+  "homepage": "https://github.com/BryanAV2008/Backend#readme",
+  "devDependencies": {}
 }
