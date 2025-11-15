@@ -5,7 +5,7 @@ import connectDB from './config/db.js';
 
 dotenv.config(); // Carga las variables de entorno
 
-const PORT = process.env.PORT || 3000; // Usa el puerto de .env o 5000 por defecto
+const PORT = process.env.PORT || 3000; 
 
 // Conectar a la base de datos
 connectDB();
