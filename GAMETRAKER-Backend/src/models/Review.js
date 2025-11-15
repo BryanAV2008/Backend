@@ -1,34 +1,30 @@
-// src/models/Review.js
+// GAMETRACKER-Backend/src/models/Review.js
 import mongoose from 'mongoose';
 
-const reviewSchema = mongoose.Schema(
-  {
-    game: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: 'Game', // Hace referencia al modelo 'Game'
-    },
-    author: {
-      type: String,
-      default: 'Anónimo',
-      trim: true,
-    },
-    rating: {
-      type: Number,
-      required: true,
-      min: 1, // La puntuación mínima es 1 estrella
-      max: 5,
-    },
-    content: {
-      type: String,
-      required: true,
-    },
+const reviewSchema = new mongoose.Schema({
+  game: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Game',
+    required: true,
   },
-  {
-    timestamps: true,
-  }
-);
+  rating: {
+    type: Number,
+    min: 1,
+    max: 5,
+    required: true,
+  },
+  comment: { // <-- Importante que se llame 'comment' aquí
+    type: String,
+    required: true,
+  },
+  author: {
+    type: String,
+    default: 'Anónimo', // Asegúrate de que este campo exista si lo esperas
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
 
-const Review = mongoose.model('Review', reviewSchema);
-
-export default Review;
+export default mongoose.model('Review', reviewSchema);
