@@ -4,7 +4,7 @@ import Game from '../models/Game.js'; // Necesario para poblar el título del ju
 
 // @desc    Obtener todas las reseñas
 // @route   GET /api/reviews
-// @access  Public
+// @access  Public 
 const getReviews = async (req, res) => {
   try {
     // Usamos populate para obtener los detalles del juego asociado a la reseña
