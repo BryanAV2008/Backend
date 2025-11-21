@@ -13,13 +13,13 @@ const reviewSchema = new mongoose.Schema({
     max: 5,
     required: true,
   },
-  comment: { // <-- Importante que se llame 'comment' aquí
+  comment: { // <-- Confirma que se llama 'comment' aquí en el modelo
     type: String,
     required: true,
   },
   author: {
     type: String,
-    default: 'Anónimo', // Asegúrate de que este campo exista si lo esperas
+    default: 'Anónimo',
   },
   createdAt: {
     type: Date,
