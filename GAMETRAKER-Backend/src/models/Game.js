@@ -1,52 +1,23 @@
-// src/models/Game.js
+// GAMETRACKER-Backend/src/models/Game.js
 import mongoose from 'mongoose';
 
 const gameSchema = mongoose.Schema(
   {
-    title: {
-      type: String,
-      required: true,
-      trim: true, // Elimina espacios en blanco al inicio/final
-    },
-    genre: {
-      type: String,
-      trim: true,
-    },
-    platform: {
-      type: String,
-      trim: true,
-    },
-    releaseDate: {
-      type: Date,
-    },
-    coverImageUrl: {
-      type: String,
-      default: 'https://via.placeholder.com/150/0000FF/FFFFFF?text=No+Cover', // Imagen por defecto
-    },
-    description: {
-      type: String,
-    },
-    completed: {
-      type: Boolean,
-      default: false,
-    },
-    hoursPlayed: {
-      type: Number,
-      default: 0,
-      min: 0,
-    },
-    rating: {
-      type: Number,
-      default: 0,
-      min: 0,
-      max: 5,
-    },
+    title: { type: String, required: true },
+    genre: { type: String },
+    platform: { type: String },
+    releaseDate: { type: Date },
+    developer: { type: String },
+    publisher: { type: String },
+    description: { type: String },
+    imageUrl: { type: String }, // O coverImageUrl
+    hoursPlayed: { type: Number, default: 0 },
+    rating: { type: Number, min: 0, max: 5, default: 0 } // <-- ¡Asegúrate de que sea Number!
   },
   {
-    timestamps: true, // Agrega campos createdAt y updatedAt automáticamente
+    timestamps: true,
   }
 );
 
 const Game = mongoose.model('Game', gameSchema);
-
 export default Game;
